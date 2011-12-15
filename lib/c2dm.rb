@@ -8,7 +8,11 @@ class C2DM
   attr_accessor :timeout, :username, :password, :source, :access_token
 
   AUTH_URL = 'https://www.google.com/accounts/ClientLogin'
-  PUSH_URL = 'https://android.apis.google.com/c2dm/send'
+  # certificate for HTTPS for this URL (and android.clients.google.com) is invalid
+  # libcurl dies with a status code 51 - invalid certificate
+  # plain HTTP works
+  # need to find a better solution for transmitting securely
+  PUSH_URL = 'http://android.apis.google.com/c2dm/send'
   DEFAULT_SOURCE = 'MyCompany-MyAppName-1.0'
 
   def initialize(username=nil, password=nil, source=DEFAULT_SOURCE)
