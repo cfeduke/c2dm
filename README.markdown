@@ -2,6 +2,10 @@
 
 c2dm sends push notifications to Android devices via google [c2dm](http://code.google.com/android/c2dm/index.html).
 
+## This Fork
+
+  We were having libcurl status code 51 (invalid certificate) for https://android.apis.google.com/ so this fork just uses HTTP instead.
+
 ##Installation
 
     $ gem install c2dm
